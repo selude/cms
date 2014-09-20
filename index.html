@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Selude CMS : Welcome to Selude CMS, The coolest and easiest MVC framework ever!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <title>Selude CMS</title>
+    <title>Selude CMS by selude</title>
   </head>
 
   <body>
+    <header>
+      <div class="inner">
+        <h1>Selude CMS</h1>
+        <h2>Welcome to Selude CMS, The coolest and easiest MVC framework ever!</h2>
+        <a href="https://github.com/selude/cms" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/selude/cms">View on GitHub</a>
-
-          <h1 id="project_title">Selude CMS</h1>
-          <h2 id="project_tagline">Welcome to Selude CMS, The coolest and easiest MVC framework ever!</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/selude/cms/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/selude/cms/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p>If you're here, you've reached the right place to begin your project with the right MVC framework. Read ahead to discover how we have made it easy for you to develop your project with minimum effort of coding.</p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>If you're here, you've reached the right place to begin your project with the right MVC framework. Read ahead to discover how we have made it easy for you to develop your project with minimum effort of coding.</p>
 
 <h1>
 <a name="what-is-selude" class="anchor" href="#what-is-selude"><span class="octicon octicon-link"></span></a>What is Selude?</h1>
@@ -50,18 +47,45 @@ Mapping these concepts to Selude, a web application or a website is seen in term
 <p>Suppose you have a project at domain <code>www.example.com</code> and you visit a page at <code>example.com/user/profile</code> So in this URL, <code>user</code> is the page you're viewing and 'profile' is the view that is actually being shown. In a similar way, 'user' page can have 'settings' view, 'dashboard' view, etc. Anything passed beyond it is considered the data part. So, a URL referring to <code>www.example.com/user/profile/tab/account/edit/true</code> gives page as <code>user</code>, view as <code>profile</code> and rest of the parameters as data part in <code>'key'=&gt;'value'</code> pair, eg., <code>'tab'=&gt;'account'</code>, <code>'edit'=&gt;'true'</code>, which you can access using <code>$this-&gt;_get("tab")</code> (in controllers) or <code>sRequest::_get("tab")</code> in view components.
 This seems pretty simple as long as you have simple page views and lesser complicated pages but as the complexity goes on increasing, the view URL may go on increasing in length with large data passed. Also, this is not SEO friendly. That's where URL rewriting comes in!
 SELUDE's URL rewrite approach emphasizes on dynamic URL rewriting, which means they're not saved in database, unlike other CMS. Rather, they are stored in a global array named as <code>'$router'</code> which can be found at <code>config/router.php</code>. Rewrited URLs can be assigned to links (anchor tags) using <code>App::_route('original_url, eg., user/profile/edit/true')</code> which may return <code>user/1</code>. See, how shortened is the new URL!</p>
-      </section>
+
+<h1>
+<a name="project-structure" class="anchor" href="#project-structure"><span class="octicon octicon-link"></span></a>Project Structure</h1>
+
+<p>Let's say you have a project at <code>www.example.com</code>. So, at the root directory, you see following files are direcotries:</p>
+
+<ul>
+<li>Files:</li>
+<li>.htaccess (For general redirection rules; not be messed with if you don't what is this)</li>
+<li>index.php (It includes <code>library/boot.php</code> which does the magic of all process control and initializations)</li>
+<li>Directories:</li>
+<li>config (Contains the configuration files: <code>application.ini</code>, in which you may need to make changes and <code>routes.php</code> whihc contains the global array <code>$routes</code> in which you may need to define rewrite URLs)</li>
+<li>library (It contains all the library files and global <code>modals</code> that you may need to use in your views' <code>dataControllers</code>)</li>
+<li>pages (contains all the pages of the project in directories named as the pages' names respectively. By default, you get a <code>default</code> direcotry which as a predefined view <code>index</code>. You may need to add more directories to pages directory in case you)</li>
+<li>store (It is a kind of repository for large files, such as images. For example, if you're developing an ecommerce site, you may need to store images of all you products , which you can do by creating a subdirectory in 'store')</li>
+</ul><h1>
+<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note</h1>
+
+<p>The project is still under development and hence the code has not been uploaded. Once it's complete, we'll upload it. Keep checking this space for our progress and more docs for the project. Thanks for your time.
+Kudos to coders who're constantly changing the world.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/selude/cms/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/selude/cms/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/selude/cms"></a> is maintained by <a href="https://github.com/selude">selude</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Selude CMS maintained by <a href="https://github.com/selude">selude</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  
   </body>
 </html>
